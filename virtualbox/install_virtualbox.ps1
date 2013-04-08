@@ -3,10 +3,9 @@ Push-Location
 $curpwd = Split-Path -Parent $MyInvocation.MyCommand.Definition
 Set-Location -Path $curpwd
 
-& .\python3.3\install_python.ps1
 
-& .\virtualbox\install_virtualbox.ps1
-
-& .\msysgit\install_git.ps1
+Write-Host "install virtualbox"
+& .\VirtualBox-4.2.10-84105-Win.exe 
+& python autoinstallwin32.py
 
 Pop-Location
