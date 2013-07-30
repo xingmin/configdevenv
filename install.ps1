@@ -5,8 +5,6 @@ Set-Location -Path $curpwd
 
 & .\python3.3\install_python.ps1
 
-& .\virtualbox\install_virtualbox.ps1
-
 & .\msysgit\install_git.ps1
 
 Pop-Location
