@@ -14,7 +14,7 @@ if (get-command git -erroraction silentlycontinue){
 	$env:Path = $env:Path + ";C:\xingmin\git\bin"
 	
 	if (-not (Test-Path "..\reboot.txt")) {
-		Write-Output "This file existed here, it shows this system needs reboot." > reboot.txt;
+		Write-Output "This file existed here, it shows this system needs reboot." > ..\reboot.txt;
 	}
 	
 }
