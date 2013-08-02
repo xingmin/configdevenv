@@ -12,5 +12,10 @@ if (get-command git -erroraction silentlycontinue){
 	$newenvpath = "C:\xingmin\git\bin;"+$oldenvpath.Path
 	Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Environment" -Name Path -Value $newenvpath
 	$env:Path = $env:Path + ";C:\xingmin\git\bin"
+	
+	if (-not (Test-Path "..\reboot.txt")) {
+		Write-Output "This file existed here, it shows this system needs reboot." > reboot.txt;
+	}
+	
 }
 Pop-Location

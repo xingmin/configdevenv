@@ -16,7 +16,12 @@ if (get-command python -erroraction silentlycontinue){
 
 	Write-Host "install pywin32"
 	Copy-Item -Force -Recurse .\pywin32-218.win32-py3.3\PLATLIB\* C:\xingmin\python3.3\Lib\site-packages
-	Copy-Item -Force -Recurse .\pywin32-218.win32-py3.3\SCRIPTS\* C:\xingmin\python3.3\Lib\site-packages
-	& python C:\xingmin\python3.3\Lib\site-packages\pywin32_postinstall.py -quiet -install
+	Copy-Item -Force -Recurse .\pywi n32-218.win32-py3.3\SCRIPTS\* C:\xingmin\python3.3\Lib\site-packages
+	& C:\xingmin\python3.3\python C:\xingmin\python3.3\Lib\site-packages\pywin32_postinstall.py -quiet -install
+	
+	if (-not (Test-Path "..\reboot.txt")) {
+		Write-Output "This file existed here, it shows this system needs reboot." > reboot.txt;
+	}
+	
 }
 Pop-Location
