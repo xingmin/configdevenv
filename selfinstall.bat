@@ -6,7 +6,7 @@ cd /d %~dp0
 
 ECHO OFF
 reg export HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall uninstall.txt
-for /f "usebackq tokens=2 delims=:" %%i in (`find /i /c "KB968930" uninstall.txt`) do (if %%i GEQ 1 goto ps)
+for /f "usebackq tokens=2 delims=:" %%i in (`%windir%\system32\find.exe /i /c "KB968930" uninstall.txt`) do (if %%i GEQ 1 goto ps)
 
 
 :installps
@@ -20,7 +20,6 @@ exit /b 1
 call .\deltask.bat
 if exist uninstall.txt del uninstall.txt
 powershell -command "& {.\install.ps1}"
-
+if exist "reboot.txt" shutdown /r /f /t 0
 popd
-
 exit /b 0
