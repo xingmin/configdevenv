@@ -20,6 +20,6 @@ exit /b 1
 call .\deltask.bat
 if exist uninstall.txt del uninstall.txt
 powershell -command "& {.\install.ps1}"
-if exist "reboot.txt" shutdown /r /f /t 0
+if exist "reboot.txt" del "reboot.txt " & shutdown /r /f /t 0
 popd
 exit /b 0
